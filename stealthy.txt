@@ -1,0 +1,34 @@
+number_of_stealthy = 0
+stealthy_found = False # boolean flag created to only increment number_of_stealthy by 1 when a stealthy is found.
+# ^^^ this needs to be implemented since multiplication is commutative, meaning that the same number could be counted as stealthy more than one time when pairs of factors are found (you can literally just reverse the pair, e.g. 4x9 = 36 and 9x4 = 36)
+factors = [] # list of factors
+
+for n in range(1, 10**6): # test the first 100 numbers if they're stealthy
+    stealthy_found = False
+    for i in range(10): # test the first 100 numbers to see if they're factors
+        if i != 0: 
+            if n % i == 0: 
+                print(i, "divides into", n)
+                factors.append(i)
+    print(factors, "are the factors of", n)
+
+    for a in range(len(factors)):
+        for b in range(len(factors)):
+            if (n == factors[a] * factors[b]):
+                print(factors[a], factors[b]) # all pairs here can be ab and/or cd
+                
+                # indentation is continued here cuz you found POTENTIAL a's and b's
+                
+                for c in range(len(factors)):
+                    for d in range(len(factors)):
+                        if (n == factors[c] * factors[d]):
+                            if factors[a] + factors[b] == factors[c] + factors[d] + 1 and not stealthy_found: # satisfies a+b = c+d+1
+                                print(n, "is a stealthy number") # may print more than once since multiplication is commutative
+                                print(factors[a], factors[b], factors[c], factors[d])
+
+                                number_of_stealthy = number_of_stealthy + 1
+                                stealthy_found = True
+
+    factors = [] # reset the list to empty
+
+print(number_of_stealthy)
