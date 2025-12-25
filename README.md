@@ -21,7 +21,7 @@ Project-Euler/
 │ ├── problem2.py
 │ ├── problem3.py
 │ └── ...
-├── README.md
+├── .gitignore
 ├── LICENSE
-└── .gitignore
+└── README.md
 ```
