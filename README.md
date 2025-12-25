@@ -10,7 +10,7 @@ Project Euler problems are mathematically and algorithmically focused, and I use
 
 I currently have 13 solved problems, with a focus on correctness first, then optimisation where appropriate.
 
-## Repository structure
+## Repository Structure
 ```
 Project-Euler/
 ├── data/ # Input data files used by some problems
